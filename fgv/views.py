@@ -27,3 +27,10 @@ def view_dinamic_str(request, param):
         return HttpResponse('<strong>Você se acha</strong>')
     else:
         return HttpResponseNotFound('Página não existe')
+
+def special_dtl(request):
+    context = {
+        "nome": "Tio",
+        "nome_familia": "Rafa"
+    }       
+    return render(request, 'fgv/fgv-dtl.html', context) 
