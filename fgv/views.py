@@ -29,8 +29,13 @@ def view_dinamic_str(request, param):
         return HttpResponseNotFound('Página não existe')
 
 def special_dtl(request):
+    lista_de_cursos = ["ciência de dados", "matemática aplicada"]
+    lista_de_signos = ['Áries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio',
+    'Sagittarius', 'Capicorn', 'Aquarius', 'Pisces']
     context = {
         "nome": "Tio",
-        "nome_familia": "Rafa"
+        "nome_familia": "Rafa",
+        "cursos": lista_de_cursos,
+        "signos": lista_de_signos
     }       
     return render(request, 'fgv/fgv-dtl.html', context) 
