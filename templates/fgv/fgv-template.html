@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block cabecalho %}
+            <title>Python Web</title> <!--Argumento padrão-->
+        {% endblock %}
+        {% block estilo %}{% endblock %}
+    </head>
+    <body>
+        {% block conteudo %}
+            <p>Conteúdo Padrão</p>
+        {% endblock %}
+        {% include 'fgv/rodape.html' %}
+    </body>
+</html>

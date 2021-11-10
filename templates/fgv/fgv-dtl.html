@@ -1,29 +1,37 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Python Web</title>
-    </head>
-    <body>
-        <h1>Python Web</h1>
-        <p>O {{nome}} {{nome_familia}} gosta muito do Yuri e do Camacho. Tanto que não cabe no peito.</p>
-        <p>O {{nome|add:nome_familia}} gosta muito do Yuri e do Camacho. Tanto que não cabe no peito.</p>
-        <p>O {{nome|add:" "|add:nome_familia}} gosta muito do Yuri e do Camacho. Tanto que não cabe no peito.</p>
-        <p>O tamanho do nome do {{nome|add:" "|add:nome_familia}} é {{nome|add:nome_familia|length}}.</p>
+{% extends 'fgv/fgv-template.html' %}
+{% load static %}
 
-        <p>O curso de {{cursos.0}} é incrível.</p>
-        <p>O curso de {{cursos.1|title}} é incrível.</p>
+{% block cabecalho %}
+    <title>Conhecendo os Templates</title>
+{% endblock %}
 
-        <h1>Tags</h1>
-        {% if nome|add:" "|add:nome_familia|length >= 20 %}
-            <p>Que nome enorme!</p>
-        {% else %}
-            <p>Que nome pequenino!</p>    
-        {% endif %}
+{% block estilo %}
+    <link rel="stylesheet" type="text/css" href="{% static 'fgv/estilos.css' %}">
+{% endblock %}
 
-        <ul>
-            {% for signo in signos %}
-                <li>{{signo}}</li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+
+{% block conteudo %}
+    <h1>Python Web</h1>
+    <p>O {{nome}} {{nome_familia}} gosta muito do Yuri e do Camacho. Tanto que não cabe no peito.</p>
+    <p>O {{nome|add:nome_familia}} gosta muito do Yuri e do Camacho. Tanto que não cabe no peito.</p>
+    <p>O {{nome|add:" "|add:nome_familia}} gosta muito do Yuri e do Camacho. Tanto que não cabe no peito.</p>
+    <p>O tamanho do nome do {{nome|add:" "|add:nome_familia}} é {{nome|add:nome_familia|length}}.</p>
+
+    <p>O curso de {{cursos.0}} é incrível.</p>
+    <p>O curso de {{cursos.1|title}} é incrível.</p>
+
+    <h1>Tags</h1>
+    {% if nome|add:" "|add:nome_familia|length >= 20 %}
+        <p>Que nome enorme!</p>
+    {% else %}
+        <p>Que nome pequenino!</p>    
+    {% endif %}
+
+    <ul>
+        {% for signo in signos %}
+            <li>{{signo}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}    
+
+
