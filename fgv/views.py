@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import Http404, HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -20,7 +20,8 @@ def view_dinamic_int(request, param):
     elif param == 2:    
         return HttpResponse('<strong>Parâmetro 2</strong>')
     else:
-        return HttpResponseNotFound('Página não existe')
+        raise Http404()
+        #return HttpResponseNotFound('Página não existe')
 
 def view_dinamic_str(request, param):
     if param == 'leao':
