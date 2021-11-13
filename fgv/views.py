@@ -1,9 +1,15 @@
 from django.http import Http404, HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from fgv.models import Student
 
 def index(request):
-    return HttpResponse("<strong>FGV</strong>")
+    lista_de_alunos = ...
+    mensagem = ""
+    #for aluno in lista_de_alunos:
+    #    pass
+       # mensagem +=() CONTINUAR
+    return HttpResponse(mensagem)
 
 def redireciona(request):
     url_direcionamento = reverse("dinamica-str", args=['leao'])
@@ -40,3 +46,8 @@ def special_dtl(request):
         "signos": lista_de_signos
     }       
     return render(request, 'fgv/fgv-dtl.html', context) 
+
+def registrar(request, nome, cr):
+    aluno = Student(nome=nome, cr=cr)
+    aluno.save()
+    return HttpResponse('Nome: '+nome+"<br>CR: "+str(cr))   
