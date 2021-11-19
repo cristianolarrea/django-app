@@ -6,4 +6,4 @@ class Student(models.Model):
     cr = models.IntegerField()
 
     def __str__(self) -> str:
-        return super().__str__()
+        return f"Nome: {self.nome} - CR: {self.cr}"

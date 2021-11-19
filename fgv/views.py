@@ -3,12 +3,15 @@ from django.shortcuts import render
 from django.urls import reverse
 from fgv.models import Student
 
+#ORM
+
 def index(request):
-    lista_de_alunos = ...
+    lista_de_alunos = Student.objects.all()
     mensagem = ""
-    #for aluno in lista_de_alunos:
-    #    pass
-       # mensagem +=() CONTINUAR
+
+    for aluno in lista_de_alunos:
+        mensagem +=(str(aluno)+"<br>")
+
     return HttpResponse(mensagem)
 
 def redireciona(request):
